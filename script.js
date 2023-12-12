@@ -7,46 +7,58 @@ let result = '';
 
 document.addEventListener('DOMContentLoaded', function() {
     let currentValueDiv = document.querySelector('#currentValueDiv');
-    // currentValueDiv.innerHTML = currentValue;
-
+    let resultsContainer = document.querySelector('#resultsContainer');
     let numbers = document.querySelectorAll('.number');
     numbers.forEach((number) => number.addEventListener('click', function() {
         if (currentValue.length < 5) {
         currentValue+= number.textContent;
         currentValueDiv.innerHTML = currentValue;
-
-        // if ((currentValue !== '') && (previousValue !== '')) {
-        //     equate();
-        // }
-}}));
+    }}));
 
     function equate() {
-        let previousValueNum = Number(previousValue);
-        let currentValueNum = Number(currentValue);
-        
-        if (operator === '+') {
-            currentValue = previousValueNum + currentValueNum;
-            currentValueDiv.innerHTML = currentValue;
-        } 
-        if (operator === '-') {
-            currentValue = previousValueNum - currentValueNum;
-            currentValueDiv.innerHTML = currentValue;
-        } 
-        if (operator === 'x') {
-            currentValue = previousValueNum * currentValueNum;
-            currentValueDiv.innerHTML = currentValue;
-        } 
-        if (operator === '/') {
-            currentValue = previousValueNum / currentValueNum;
-            currentValueDiv.innerHTML = currentValue;
-        } 
+        if ((previousValue === '') || (currentValue === '')) {
+            alert('define parameters!')
+        } else {
+            let previousValueNum = Number(previousValue);
+            let currentValueNum = Number(currentValue);
+            
+            if (operator === '+') {
+                currentValue = previousValueNum + currentValueNum;
+                currentValueDiv.innerHTML = currentValue;
+            } 
+            if (operator === '-') {
+                currentValue = previousValueNum - currentValueNum;
+                currentValueDiv.innerHTML = currentValue;
+            } 
+            if (operator === 'x') {
+                currentValue = previousValueNum * currentValueNum;
+                currentValueDiv.innerHTML = currentValue;
+            } 
+            if (operator === '/') {
+                currentValue = previousValueNum / currentValueNum;
+                currentValueDiv.innerHTML = currentValue;
+            } 
+            if ((previousValueNum == 1) && (currentValueNum == 0)) {
+                currentValueDiv.style.fontSize = '24px';
+                currentValueDiv.style.color = 'red';
+                resultsContainer.style.backgroundColor = 'purple';
+                currentValueDiv.innerHTML = 'nice try dividing by 0, idiot';
+            }
+        }
     };
 
     let operators = document.querySelectorAll('.operator');
     operators.forEach((op) => op.addEventListener('click', function() {
-        operator = op.textContent;
-        previousValue = currentValue;
-        currentValue = '';
+        if ((currentValue !== '') && (previousValue !== '')) {
+            equate();
+            operator = op.textContent;
+            previousValue = currentValue;
+            currentValue = '';
+        } else {
+            operator = op.textContent;
+            previousValue = currentValue;
+            currentValue = '';
+        }
     })); 
 
     let equalSign = document.querySelector('#equalSign');
@@ -57,8 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
         previousValue = '';
         currentValue = '';
         currentValueDiv.innerHTML = '';
+
+        currentValueDiv.style.fontSize = '50px';
+        currentValueDiv.style.color = 'black';
+        resultsContainer.style.backgroundColor = 'lightgray';
     });
-    
 })
 
 // function equate() {

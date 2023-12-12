@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 86.5px;
+}
+
+#container {
+    width: 400px;
+    min-width: 400px;
+    height: 500px;
+    background-color: gray;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+}
+
+#resultsContainer {
+    width: 350px;
+    height: 100px;
+    background-color: lightgray;
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.valueEquation {
+    margin: 0 20px 10px 0;
+    font-size: 50px;
+}
+
+/* #currentEquation {
+    font-size: 18px;
+    margin-bottom: 60px;
+    position: fixed;
+} */
+
+#clearDelete {
+    width: 350px;
+    height: 70px;
+    background-color: black;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 2px solid lightgray;
+}
+
+.midSection {
+    width: 150px;
+    height: 50px;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 24px;
+    
+}
+
+#clear {
+
+}
+
+#delete {
+    background-color: cornflowerblue;
+
+}
+
+#numbersEquationsContainer {
+    width: 350px;
+    height: 250px;
+    margin: 20px auto;
+    background-color: darkblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+}
+
+#operatorDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.number, .operator, #equalSign {
+    height: 51px;
+    width: 51px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    /* border: 2px solid lightgray; */
+}
